@@ -6,3 +6,4 @@
 | Medium | Container With Most Water | Array | [Link](https://leetcode.com/problems/) |
 | Easy | Longest Common Prefix | Array | [Link](https://leetcode.com/problems/) |
 | Easy | Remove Element | Array | [Link](https://leetcode.com/problems/) |
+| Hard | Sudoku Solver | Array | [Link](https://leetcode.com/problems/) |
