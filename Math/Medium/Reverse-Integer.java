@@ -1,5 +1,8 @@
 class Solution {
     // NOTE: The % and / operations in Java preserve the sign when dealing with negative numbers.
+
+    // TC: O(log10(n))
+    // SC: O(1)
     public int reverseApproach1(int x) {
         int rev = 0;
 
@@ -33,8 +36,10 @@ class Solution {
         return rev;
     }
 
+    // TC: O(log10(n))
+    // SC: O(1)
     public int reverseApproach2(int n) {
-        long revNum = 0;
+        long revNum = 0; // to safely store the reversed number if it exceeds int range
 
         while(n != 0) {
             long rem = n % 10;
