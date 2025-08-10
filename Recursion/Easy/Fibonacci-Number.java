@@ -1,4 +1,7 @@
 class Solution {
+
+    // TC: O(2^N)
+    // SC: O(N) {due to recursion stack}
     public int fib(int n) {
          if(n <= 1){
             return n;
