@@ -60,7 +60,7 @@ public class MergeSort {
         // copying back the sorted elements into original array
         // After you merge into ans, the sorted part exists only in ans.
         // But you still need the main arr to be sorted for the next merges.
-        for(int l = i ; l < j; l ++){
+        for(int l = i ; l <= j; l ++){
            arr[l] = ans[l - i]; // eg: l = 1 -> arr[1] = ans[1 - 0] where i = 0 bcoz original array i = 0 and j = arr.length - 1
         }
 
