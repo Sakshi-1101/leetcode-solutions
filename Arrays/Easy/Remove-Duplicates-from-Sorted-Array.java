@@ -1,5 +1,9 @@
 class Solution {
     public int removeDuplicates(int[] arr) {
+        if (arr.length == 0) {
+            return 0;
+        }
+
          int i = 0;
         
         // we move ‘j’ till we don't get a number arr[j] which is different from arr[i]. 
