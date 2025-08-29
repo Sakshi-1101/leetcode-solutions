@@ -5,7 +5,7 @@ public class CheckIfArrayIsSorted {
 
         boolean ans = isSortedOptimal(arr);
 
-        System.err.println(ans);;
+        System.err.println(ans);
     }
 
 
