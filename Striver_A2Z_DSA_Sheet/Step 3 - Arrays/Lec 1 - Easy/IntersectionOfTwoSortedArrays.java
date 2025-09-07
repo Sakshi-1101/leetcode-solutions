@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class IntersectionOfTwoSortedArrays {
@@ -22,6 +21,7 @@ public class IntersectionOfTwoSortedArrays {
 
     // TC: O(N * M)
     // SC: O(N + M)
+    // Approach: In this approach we will maintain a visited array to keep a track of the element we have already included in the output array.
     public static ArrayList<Integer> intersectionofTwoSortedArraysBruteApproach(int[] arr1, int[] arr2) {
         ArrayList<Integer> ans = new ArrayList<>();
 

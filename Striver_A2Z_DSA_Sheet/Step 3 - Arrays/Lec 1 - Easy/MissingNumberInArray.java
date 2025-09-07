@@ -1,6 +1,4 @@
 
-import javax.sound.sampled.BooleanControl;
-
 public class MissingNumberInArray {
 
     public static void main(String[] args) {
@@ -25,7 +23,7 @@ public class MissingNumberInArray {
     // Approach: For each number from 0 to n, we check if it is present in the array by looping through the entire array.
     public static int findMissingNumberBrute(int[] arr, int n) {
 
-        // Check for each number from 0 to n if it is present in the array
+        // Check for each number i from 0 to n if it is present in the array
         for(int i = 0 ; i <= n ; i ++){
 
             boolean found = false;

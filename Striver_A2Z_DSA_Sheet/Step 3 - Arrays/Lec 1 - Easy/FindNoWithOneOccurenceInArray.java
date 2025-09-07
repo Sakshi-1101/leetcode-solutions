@@ -41,7 +41,7 @@ public class FindNoWithOneOccurenceInArray {
 
     // TC: O(N) + O(N) + O(N) ~ O(N)
     // SC: O(maxNum + 1)
-    // Approach: in this we'll add the fre  q of each element in the freq array on it's corresponding index value and then check for element with freq = 1.
+    // Approach: in this we'll add the freq of each element in the freq array on it's corresponding index value and then check for element with freq = 1.
     public static int findOccurenceBetter1(int[] arr) {
         int maxNum = Integer.MIN_VALUE;
 
