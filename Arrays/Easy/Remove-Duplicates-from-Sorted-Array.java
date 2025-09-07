@@ -6,7 +6,7 @@ class Solution {
 
          int i = 0;
         
-        // we move ?j? till we don't get a number arr[j] which is different from arr[i]. 
+        // we move 'j' till we don't get a number arr[j] which is different from arr[i]. 
         //As we got a unique number we will increase the i pointer and update its value by arr[j]
         for(int j = 1 ; j < arr.length ; j ++){
 
