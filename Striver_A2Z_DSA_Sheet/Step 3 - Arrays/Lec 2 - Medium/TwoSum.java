@@ -8,34 +8,34 @@ public class TwoSum {
 
         //variant 1 -> Return YES if there exist two numbers such that their sum is equal to the target. Otherwise, return NO.
         String ansV1Brute = twoSumV1Brute(arr, targetSum);
-        String ansv1Better = twoSumV1Better(arr, targetSum);
+        String ansV1Better = twoSumV1Better(arr, targetSum);
         String ansV1Optimal = twoSumV1Optimal(arr, targetSum);
 
         System.out.println(ansV1Brute);
-        System.out.println(ansv1Better);
+        System.out.println(ansV1Better);
         System.out.println(ansV1Optimal);
 
         //variant 2 -> Return indices of the two numbers such that their sum is equal to the target. Otherwise, we will return {-1, -1}.
         int[] ansV2Brute = twoSumV2Brute(arr, targetSum);
 
-        for(int val: ansV2Brute) {
-            System.out.print(val);
+        for(int i = 0 ; i < ansV2Brute.length ; i ++) {
+            System.out.print(ansV2Brute[i] + " ");
         }
 
         System.out.println();
 
-        int[] ansv2Better = twoSumV2Better(arr, targetSum);
+        int[] ansV2Better = twoSumV2Better(arr, targetSum);
         
-        for(int val: ansv2Better) {
-            System.out.print(val);
+        for(int i = 0 ; i < ansV2Better.length ; i ++) {
+            System.out.print(ansV2Better[i] + " ");
         }
 
         System.out.println();
 
         int[] ansV2Optimal = twoSumV2Optimal(arr, targetSum);
 
-        for(int val: ansV2Optimal) {
-            System.out.print(val);
+        for(int i = 0 ; i < ansV2Optimal.length ; i ++) {
+            System.out.print(ansV2Optimal[i] + " ");
         }
 
         System.out.println();
@@ -62,7 +62,7 @@ public class TwoSum {
 
     // TC: O(N)
     // SC: O(N)
-    // Approach: Using Hashmap, we'll store each element in the map and check if the there an element equal to the remSum required to achieve the target.
+    // Approach: Using Hashmap, we'll store each element in the map and check if there is an element equal to the remSum required to achieve the target.
     public static String twoSumV1Better(int[] arr, int tar) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
