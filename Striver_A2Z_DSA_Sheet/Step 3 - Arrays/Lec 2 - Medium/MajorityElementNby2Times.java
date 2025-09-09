@@ -91,7 +91,7 @@ public class MajorityElementNby2Times {
         // Step 2: check if the potential majEle is actually the majority element or not.
         /*
          * NOTE: Only perform this step if it is mentioned in the ques that the majority element may or may not exists.
-         * If the ques says there always exists the majority element then skip this step. In this case you potential majEle from Step 1 will be the final ans.
+         * If the ques says there always exists the majority element then skip this step. In this case your potential majEle from Step 1 will be the final ans.
          */
         for(int i = 0 ; i < arr.length ; i ++) {
             if(majEle == arr[i]) {
