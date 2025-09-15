@@ -48,6 +48,7 @@ public class RearrangeArrayElementsBySign {
 
     }
 
+
     // TC: O(N + N/2) -> O(N) for traversing the array once for segregating (+)ves and (-)ves and O(N/2) for adding those elements alternatively to the array}
     // SC: O(N/2 + N/2) -> O(N) for storing the (+)ves and (-)ves in separate arraylists
     // Approach: Store positive and negative numbers in separate lists, then merge them back into the original array in alternating order.
@@ -157,9 +158,75 @@ public class RearrangeArrayElementsBySign {
     }
     
 
+    // TC: O(2N) -> This is the worst case complexity which is a combination of O(N) of traversing the array to segregate into neg and pos array and O(N) for adding the elements alternatively to the main array
+    // SC: O(N/2 + N/2) = O(N) -> N/2 space required for each of the positive and negative element arrays, where N = size of the array A
+    // Approach: In this approach, we first segregate the positive and negative elements into two separate lists. 
+                // Then, we fill the original array by alternating between elements from the positive and negative lists. 
+                // If one list is exhausted before the other, we append the remaining elements from the longer list to the end of the array.
+    public static int[] rearrangeElementsV2(int[] arr) {
+        ArrayList<Integer> pos = new ArrayList<>();
+        ArrayList<Integer> neg = new ArrayList<>();
 
-     public static int[] rearrangeElementsV2(int[] arr) {
+        // segregate positive and negative elements
+        for(int i = 0 ; i < arr.length ; i ++) {
+            if(arr[i] > 0) {
+                pos.add(arr[i]);
+            } else {
+                neg.add(arr[i]);
+            }
+        }
 
+        // if the number of positive elements is less than the number of negative elements
+        if(pos.size() < neg.size()){
+
+            // first add equal number of positive and negative elements alternatively until one of the lists is exhausted
+            for(int i = 0 ; i < pos.size() ; i ++) {
+                arr[2 * i] = pos.get(i);
+                arr[2 * i + 1] = neg.get(i);
+            }
+
+            /*
+             * At this point, all positives have been paired with negatives alternately.
+             * Example: pos.size() = 2 → placed like [pos0, neg0, pos1, neg1].
+             * So we've already filled 2 * pos.size() slots in the array. Hence we'll start filling from index 2 * pos.size()
+             */
+            int idx = 2 * pos.size();
+
+            /*
+             * Start from pos.size() since the first 'pos.size()' negatives are already used in alternation.  
+             * Continue until neg.size() to place all remaining negatives sequentially.  
+             */
+            for(int i = pos.size() ; i < neg.size() ; i ++) { // add the remaining negative elements
+                arr[idx] = neg.get(i);
+                idx++;
+            }
+
+        } else { // if the number of negative elements is less than the number of positive elements
+
+            // first add equal number of positive and negative elements alternatively until one of the lists is exhausted
+            for(int i = 0 ; i < neg.size() ; i ++) {
+                arr[2 * i] = pos.get(i);
+                arr[2 * i + 1] = neg.get(i);
+            }
+
+            /*
+             * At this point, all negatives have been paired with positives alternately.
+             * Example: neg.size() = 2 → placed like [pos0, neg0, pos1, neg1].
+             * So we've already filled 2 * neg.size() slots in the array. Hence we'll start filling from index 2 * neg.size()
+             */
+            int idx = 2 * neg.size();
+
+            /*
+             * Start from neg.size() since the first 'neg.size()' positives are already used in alternation.  
+             * Continue until pos.size() to place all remaining positives sequentially.  
+             */
+            for(int i = neg.size() ; i < pos.size() ; i ++) { // add the remaining positive elements
+                arr[idx] = pos.get(i);
+                idx++;
+            }
+        }
+        
+        return arr;
         
      }
 }
