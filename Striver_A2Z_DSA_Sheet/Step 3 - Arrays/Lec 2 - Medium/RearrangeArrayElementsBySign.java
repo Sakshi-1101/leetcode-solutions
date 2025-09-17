@@ -77,7 +77,7 @@ public class RearrangeArrayElementsBySign {
     // SC: 0(1)
     // Approach: We'll maintain two pointers i and j. The pointer i will traverse the array, and j will look for the next element to swap when the sign condition is not met.
     public static int[] rearrangeElementsMyApproachV1(int[] arr) {
-       int n = arr.length;
+        int n = arr.length;
         int i = 0;
 
         while (i < n) {
@@ -92,7 +92,7 @@ public class RearrangeArrayElementsBySign {
                     break; 
                 }
 
-                rotateRight(arr, i, j); // bring nums[j] to position i
+                rotateRight(arr, i, j); // bring arr[j] to position i
             }
 
             // Odd index → need negative
@@ -106,7 +106,7 @@ public class RearrangeArrayElementsBySign {
                     break;
                 }
 
-                rotateRight(arr, i, j); // bring nums[j] to position i
+                rotateRight(arr, i, j); // bring arr[j] to position i
             }
 
             i++;
@@ -117,7 +117,7 @@ public class RearrangeArrayElementsBySign {
 
     // Rotate the subarray [i...j] right by one
     /*
-     *  rotate() is used to fix a misplaced element (wrong sign at index i) by bringing the next correctly-signed element (at index j) forward. 
+     * rotate() is used to fix a misplaced element (wrong sign at index i) by bringing the next correctly-signed element (at index j) forward. 
      * Instead of just swapping i and j, we rotate the subarray [i..j] to the right by 1 position. 
      * This preserves the original relative order of all elements between i and j (important because
      * the problem requires maintaining order).
