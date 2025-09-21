@@ -1,15 +1,14 @@
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 
 public class NextPermutation {
 
     public static void main(String[] args) {
         int[] arr = {1, 3, 2};
 
-        // ArrayList<Integer> ansBrute = nextPermutationBrute(arr);
+        ArrayList<Integer> ansBrute = nextPermutationBrute(arr);
         int[] ansOptimal = nextPermutationOptimal(arr);
 
-        // System.out.println(ansBrute);
+        System.out.println(ansBrute);
         
         for(int i = 0 ; i < ansOptimal.length ; i ++) {
             System.out.print(ansOptimal[i] + " ");
@@ -171,7 +170,7 @@ public class NextPermutation {
         }
 
         // edge case: [5,4,3,2,1] next permutation is [1,2,3,4,5]
-        if(idx == -1) {
+        if(idx == -1) { // no breakpoint found, means the array is in descending order
             reverse(arr, 0, arr.length - 1);
             return arr;
         }
@@ -184,7 +183,7 @@ public class NextPermutation {
             }
         }
 
-        // reverse the array betwee [idx + 1 .... end] to get the smallest rearrangement. 
+        // reverse the array between [idx + 1 .... end] to get the smallest rearrangement. 
         // Also as we know all the elements after breakpoint idx are in the desc order starting from idx we can reverse it to make it in asc order and get the samllest rearrangement.
         reverse(arr, idx + 1, arr.length - 1);
 
