@@ -18,6 +18,11 @@ public class LongestConsecutiveSeqInArray {
     // SC: O(1)
     // Approach: For each element, we'll check for the next consecutive element in the array using linear search.
     public static int longConsecSeqBrute(int[] arr) {
+        // base case
+        if(arr.length <= 1) {
+            return arr.length;
+        }
+
         int len = 1; // length of longest consecuive sequence
 
         for(int i = 0 ; i < arr.length ; i ++) {
@@ -61,6 +66,11 @@ public class LongestConsecutiveSeqInArray {
     // SC: O(1)
     // Approach: Sort the array and then check for each element if the next element is consecutive or not. If yes, increment the count, else reset the count to 1.
     public static int longConsecSeqBetter(int[] arr) {
+        // base case
+        if(arr.length <= 1) {
+            return arr.length;
+        }
+
         // sort the array
         Arrays.sort(arr);
 
@@ -98,6 +108,10 @@ public class LongestConsecutiveSeqInArray {
      * This targeted approach narrows down our search and improves efficiency.
      */
     public static int longConsecSeqOptimal(int[] arr) {
+        // base case
+        if(arr.length <= 1) {
+            return arr.length;
+        }
 
         HashSet<Integer> set = new HashSet<>();
 
