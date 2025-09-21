@@ -153,6 +153,12 @@ public class NextPermutation {
         arr[idx] = temp;
     }
 
+
+    // TC: O(3N)
+    // SC: O(1)
+    // Approach: In this approach, we'll find the breakpoint in the array from the right side where the value drops. 
+    //           Then we'll find the next largest element for the breakpoint element and swap them. 
+    //           Finally, we'll reverse the array from breakpoint + 1 to end to get the smallest rearrangement.
     public static int[] nextPermutationOptimal(int[] arr) {
         int idx = -1; // breakpoint
 
