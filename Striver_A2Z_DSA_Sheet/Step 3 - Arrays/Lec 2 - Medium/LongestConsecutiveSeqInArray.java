@@ -122,6 +122,7 @@ public class LongestConsecutiveSeqInArray {
 
         int len = 1;
 
+        // traverse through the set
         for(int ele: set) {
             // check if the ele is the starting number i.e. ele - 1 doesn't exist
             if(!set.contains(ele - 1)) {
