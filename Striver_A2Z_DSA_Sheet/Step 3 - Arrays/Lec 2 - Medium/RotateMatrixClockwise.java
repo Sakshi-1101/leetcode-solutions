@@ -26,7 +26,7 @@ public class RotateMatrixClockwise {
     }
 
     // TC: O(N^2)
-    // SC: O(N^2)
+    // SC: O(N^2) 
     // Approach: In this we'll pick ith row and place it in (N-i-1)th column of the new array.
     public static int[][] rotateMatrixBrute(int[][] arr) {
         int[][] ans = new int[arr.length][arr[0].length];

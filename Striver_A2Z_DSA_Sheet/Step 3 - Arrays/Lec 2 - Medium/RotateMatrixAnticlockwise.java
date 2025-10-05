@@ -41,7 +41,7 @@ public class RotateMatrixAnticlockwise {
          */
         for(int i = 0 ; i < arr.length ; i ++) {
             for(int j = 0 ; j < arr[0].length ; j ++) {
-                // ans[i][j] = arr[j][idx]; // OR ans[i][j] = arr[j][arr.length - i - 1];
+                ans[i][j] = arr[j][idx]; // OR ans[i][j] = arr[j][arr.length - i - 1];
             }
 
             idx --;
