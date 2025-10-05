@@ -52,4 +52,58 @@ class Solution {
         return ans;
 
     }
+
+
+    // APPROACH 2
+    public List<Integer> spiralOrderApproach2(int[][] matrix) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int minr = 0;
+        int maxr = m - 1;
+
+        int minc = 0;
+        int maxc = n - 1;
+
+        int count = 1;
+
+        int total = m * n;
+
+        while(count <= total){
+
+            // top wall
+
+            for(int j = minc; j <= maxc && count <= total; j++){
+                list.add(matrix[minr][j]);
+                count++;
+            }
+            minr++;
+            
+            // right wall
+            for(int i = minr; i <= maxr && count <= total; i++){
+                list.add(matrix[i][maxc]);
+                count++;
+            }
+            maxc--;
+
+            // bottom wall
+            for(int j = maxc; j >= minc && count <= total; j--){
+                list.add(matrix[maxr][j]);
+                count++;
+            }
+            maxr--;
+
+            // left wall
+            for(int i = maxr; i >= minr && count <= total; i--){
+                list.add(matrix[i][minc]);
+                count++;
+            }
+            minc++;
+            
+        }
+        return list;
+    }
 }
