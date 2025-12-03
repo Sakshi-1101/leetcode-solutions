@@ -14,14 +14,14 @@ public class FourSum {
         System.out.println(ansOptimal);
     }
 
-    // TC: O(N^4 + log(no. of unique triplets)) -> N^4 for 4 loops + log() of adding quadruplets to set
+    // TC: O(N^4 + log(no. of unique quadruplets)) -> N^4 for 4 loops + log() of adding quadruplets to set
            /* NOTE: TC of sorting is not considered since every time we are sorting only 4 elements. */
     // SC: O(2 * no. of the unique quadruplets) -> O(no. of unique quadruplets) for set + O(no. of unique quadruplets) for final list
     // Approach: In this approach, we will use four nested loops to find all quadruplets that sum to zero.
     public static List<List<Integer>> fourSumBrute(int[] arr) {
         Set<List<Integer>> set = new HashSet<>();
 
-        // run four loops to traverse throught the array to find quadruplets
+        // run four loops to traverse through the array to find quadruplets
         for(int i = 0 ; i < arr.length ; i ++) {
             for(int j = i + 1 ; j < arr.length ; j ++) {
                 for(int k = j + 1 ; k < arr.length ; k ++) {

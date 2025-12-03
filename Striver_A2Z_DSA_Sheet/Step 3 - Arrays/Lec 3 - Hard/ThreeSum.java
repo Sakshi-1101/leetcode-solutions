@@ -21,7 +21,7 @@ public class ThreeSum {
     public static List<List<Integer>> threeSumBrute(int[] arr) {
         Set<List<Integer>> set = new HashSet<>();
 
-        // run three loops to traverse throught the array to find triplets
+        // run three loops to traverse through the array to find triplets
         for(int i = 0 ; i < arr.length ; i ++) {
             for(int j = i + 1 ; j < arr.length ; j ++) {
                 for(int k = j + 1 ; k < arr.length ; k ++) {
@@ -100,7 +100,7 @@ public class ThreeSum {
 
             // if the current elements are equal to the next elements, skip them to avoid duplicates
             // Skip duplicates for first element
-            if(i== 0 || (i > 0 && arr[i] != arr[i -1])) {
+            if(i== 0 || (i > 0 && arr[i] != arr[i - 1])) {
 
                 // Two pointers
                 int j = i + 1;
@@ -134,7 +134,6 @@ public class ThreeSum {
                         }
                     }
                 }
-
             }
         }
 
