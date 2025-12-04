@@ -84,7 +84,7 @@ public class CountNoOfSubarraysWithXorK {
         int prefixXor = 0;
         int count = 0;
 
-        // initally put prefixXor 0 with count 1 in map bcoz 0 ^ a = a
+        // initially put prefixXor 0 with count 1 in map bcoz 0 ^ a = a
         // this will also help in a base case where the prefixXor itself is equal to target
         map.put(prefixXor, 1);
 
@@ -100,7 +100,7 @@ public class CountNoOfSubarraysWithXorK {
                 count += map.get(remXor);
             }
 
-            // add o update the count of current prefixXor in map
+            // add or update the count of current prefixXor in map
             map.put(prefixXor, map.getOrDefault(prefixXor, 0) + 1);
         }
 
