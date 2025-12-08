@@ -36,7 +36,14 @@ class Solution {
         for(int i = low ; i <= mid ; i ++ ){
 
              // Move 'right' forward as long as arr[i] > 2 * arr[right].
-             /* NOTE: Use long to avoid integer overflow: 2 * arr[right] may overflow int when values are near 2^31-1 */
+             /* 
+                NOTE: 
+                Use long to avoid integer overflow: 2 * arr[right] may overflow int when values are near 2^31-1
+                TestCase: 
+                    arr = [2147483647,2147483647,2147483647,2147483647,2147483647,2147483647]
+                    output = 0
+
+             */
             while(right <= high && (long) arr[i] > 2L * arr[right]) {
                 right++;
             }
