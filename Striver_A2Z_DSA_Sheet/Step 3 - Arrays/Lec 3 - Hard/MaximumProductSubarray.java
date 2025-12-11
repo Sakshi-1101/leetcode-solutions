@@ -67,7 +67,7 @@ public class MaximumProductSubarray {
 
     // TC: O(N)
     // SC: O(1)
-    // Approach: 
+    // Approach: In this we'll keep track of the maximum product and minimum product at each index. 
     public static int maxProductOptimal2(int[] arr) {
         // Result so far is the first element
         int result = arr[0];
