@@ -67,7 +67,10 @@ public class MaximumProductSubarray {
 
     // TC: O(N)
     // SC: O(1)
-    // Approach: In this we'll keep track of the maximum product and minimum product at each index. 
+    // Approach: In this we'll keep track of the maximum product and minimum product at each index bcoz a negative number can turn 
+    //           the minimum product into maximum. So at each index we'll update the maxProd and minProd and compare the maxProd with 
+    //           the result. If the current number is negative we'll swap the maxProd and minProd values.
+    //           Also at each index we'll decide whether to start a new subarray or continue the previous product chain.
     public static int maxProductOptimal2(int[] arr) {
         // Result so far is the first element
         int result = arr[0];
