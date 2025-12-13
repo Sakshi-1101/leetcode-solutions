@@ -110,7 +110,7 @@ public class FloorCeilInSortedArray {
     // Approach:
     /*
         Binary search stops exactly between the floor and ceil indexes:
-                 ↓ high        ↓ low
+                 ? high        ? low
         [ .... [floor]   x   [ceil] .... ]
 
         Because:
@@ -118,8 +118,8 @@ public class FloorCeilInSortedArray {
         2. Elements > x keep pulling high backward
 
         The moment they cross (low > high):
-        - high stops at the largest index where arr[high] < x → this becomes floor
-        - low stops at the smallest index where arr[low] > x → this becomes ceil
+        - high stops at the largest index where arr[high] < x ? this becomes floor
+        - low stops at the smallest index where arr[low] > x ? this becomes ceil
      */
     public static int[] floorAndCeilApproach3(int[] arr, int x) {
         int[] ans = new int[2];
@@ -142,8 +142,8 @@ public class FloorCeilInSortedArray {
 
         // if loop breaks, high and low will stop at the correct position for floor(x) and ceil(x) respectively
         /*
-            When x is smaller than all elements → floor doesn't exist (high = -1 -> floor = -1)
-            When x is larger than all elements → ceil doesn't exist (low = arr.length -> ceil = -1)
+            When x is smaller than all elements ? floor doesn't exist (high = -1 -> floor = -1)
+            When x is larger than all elements ? ceil doesn't exist (low = arr.length -> ceil = -1)
          */
         ans[0] = (high == -1) ? -1 : arr[high]; // floor
         ans[1] = (low == arr.length) ? -1 : arr[low]; // ceil
