@@ -126,7 +126,7 @@ public class SearchSingleElementInArray {
         return xor;
     }
 
-    // TC: O(NlogN)
+    // TC: O(log (base 2) N)
     // SC: O(1)
     // Approach: Binary search on the array to find the single element. The key insight is that in a sorted array with all 
     //           elements appearing twice except one, we can use binary search to determine which half contains the single 
