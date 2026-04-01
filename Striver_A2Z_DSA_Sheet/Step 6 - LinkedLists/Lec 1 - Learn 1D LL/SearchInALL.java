@@ -23,11 +23,26 @@ public class SearchInALL {
 
         printList(n1);
 
-        Node newHead = new Node(5, null);
-        newHead.next = n1;
+        int val = 2;
 
-        printList(newHead);
+        boolean check = searchInLL(n1, val);
 
+        System.out.println(check);
+
+    }
+
+    private static boolean searchInLL(Node head, int val) {
+        Node temp = head;
+
+        while(temp != null) {
+            if(temp.data == val) {
+                return true;
+            }
+
+            temp = temp.next;
+        }
+
+        return false;
     }
 
     private static void printList(Node head) {
