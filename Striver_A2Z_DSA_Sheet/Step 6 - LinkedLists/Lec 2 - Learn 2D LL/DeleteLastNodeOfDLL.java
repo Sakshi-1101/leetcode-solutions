@@ -10,7 +10,7 @@ class Node {
     }
 }
 
-public class DeleteLastNodOfDLL {
+public class DeleteLastNodeOfDLL {
 
     public static void main(String[] args) {
         Node head = new Node(0, null, null);

@@ -1,17 +1,17 @@
 
 import java.util.Stack;
 
-class Node {
-    int data;
-    Node next;
-    Node prev;
+// class Node {
+//     int data;
+//     Node next;
+//     Node prev;
 
-    Node(int data, Node next, Node prev) {
-        this.data = data;
-        this.next = next;
-        this.prev = prev;
-    }
-}
+//     Node(int data, Node next, Node prev) {
+//         this.data = data;
+//         this.next = next;
+//         this.prev = prev;
+//     }
+// }
 
 public class ReverseDLL {
 
@@ -37,7 +37,7 @@ public class ReverseDLL {
     //           data in a stack. Then, in a second pass, we assign elements from the stack to nodes, ensuring a reverse order 
     //           replacement since stacks follow the Last-In-First-Out (LIFO) principle.
     private static Node reverseBrute(Node head) {
-        // If list is empty or  only one node present
+        // If list is empty or only one node present
         if (head == null || head.next == null) {
             return head;
         }
@@ -66,7 +66,7 @@ public class ReverseDLL {
     // Approach: In this approach we'll reverse the list in place by swapping the next and prev pointers of each node. We'll also 
     //           keep track of the new head of the reversed list as we go along. 
     private static Node reverseOptimal(Node head) {
-        // If list is empty or  only one node present
+        // If list is empty or only one node present
         if (head == null || head.next == null) {
             return head;
         }
