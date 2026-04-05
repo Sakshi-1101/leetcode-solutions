@@ -38,7 +38,7 @@ public class MiddleOfLL {
     //           by traversing the LL again until we reach the mid element. If the no. of elements in the LL is even, then we will
     //           return the next element of the mid element as the mid element bcoz in case of even no. of elements, there are two 
     //           mid elements and we have to return the second one.
-    // TORTOISE AND HARE ALGORITHM
+    // TORTOISE AND HARE ALGORITHM ((Floyd’s Cycle Detection))
     public static int findMidElementBrute(Node head) {
         Node temp = head;
         int count = 0;
