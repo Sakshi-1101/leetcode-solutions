@@ -64,7 +64,7 @@ public class DetectLoopInLL {
                 return true;
             }
 
-            // If not is not there in map, add it to the map and continue traversing the LL
+            // If node is not there in map, add it to the map and continue traversing the LL
             map.put(temp, true);
             temp = temp.next;
         }

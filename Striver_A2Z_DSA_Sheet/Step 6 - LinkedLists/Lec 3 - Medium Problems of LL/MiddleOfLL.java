@@ -38,7 +38,6 @@ public class MiddleOfLL {
     //           by traversing the LL again until we reach the mid element. If the no. of elements in the LL is even, then we will
     //           return the next element of the mid element as the mid element bcoz in case of even no. of elements, there are two 
     //           mid elements and we have to return the second one.
-    // TORTOISE AND HARE ALGORITHM ((Floyd’s Cycle Detection))
     public static int findMidElementBrute(Node head) {
         Node temp = head;
         int count = 0;
@@ -74,6 +73,7 @@ public class MiddleOfLL {
     //           while the fast pointer will move two steps at a time. When the fast pointer reaches the end of the LL, the slow 
     //           pointer will be at the mid element. If the no. of elements in the LL is even, then we will return the next element 
     //           of the slow pointer as the mid element bcoz in case of even no. of elements, there are two mid elements and we have to return the second one.
+    // TORTOISE AND HARE ALGORITHM ((Floyd’s Cycle Detection))
     public static int findMidElementOptimal(Node head) {
         Node temp = head;
 
