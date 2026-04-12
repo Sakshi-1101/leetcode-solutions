@@ -25,7 +25,7 @@ public class RemoveNthNodeFromEnd {
         n3.next = n4;
         n4.next = n5;
 
-        int n = 2; // nth node from the end to be removed
+        int n = 2; // nth no0de from the end to be removed
 
         Node headBrute = removeNthNodeBrute(head, n);
         Node headOptimal = removeNthNodeOptimal(head, n);
