@@ -29,6 +29,8 @@ public class AddOneToANumberLL {
             => Pros - No tampering of data, addition is done in-place and in faster time.
                Cons - Extra recursion space
          */
+
+        // Constraint: The number will contain no leading zeroes except when the value represented is zero itself.
         Node headIter = addNumIterative(head);
         Node headRec = addNumRecursive(head);
 

@@ -51,7 +51,7 @@ public class SortLL {
     // Approach: In this approach we will first traverse the LL and store the values in an arraylist, then we will sort the 
     //           arraylist and then we will traverse the LL again and update the values from arraylist. Finally we will return 
     //           the head of sorted LL.
-    public static Node sortBrute(Node head) { 
+    public static Node sortBrute(Node head) {  
         ArrayList<Integer> al = new ArrayList<>();
 
         Node temp = head;
