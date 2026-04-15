@@ -9,45 +9,50 @@
 9 * }
 10 */
 11class Solution {
-12    public ListNode reverseKGroup(ListNode head, int k) {
-13        if(head == null || head.next == null) {
-14            return head;
-15        }
-16
-17        int len = findLen(head);
-18
-19        ListNode dummyHead = new ListNode(-1, null);
-20        dummyHead.next = head;
-21
-22        ListNode prev = dummyHead;
-23
-24        while(len >= k) {
-25            ListNode curr = prev.next;
-26            ListNode nex = curr.next;
-27
-28            for(int i = 1; i < k ; i ++) {
-29                curr.next = nex.next;
-30                nex.next = prev.next;
-31                prev.next = nex;
-32                nex = curr.next;
-33            }
-34
-35            prev = curr;
-36            len -= k;
-37        }
-38
-39        return dummyHead.next;
-40    }
-41
-42    private static int findLen(ListNode head)  {
-43        ListNode temp = head;
-44        int len = 0;
-45
-46        while(temp != null) {
-47            len++;
-48            temp = temp.next;
-49        }
-50
-51        return len;
-52    }
-53}
+12    // RECURSIVE APPROACH
+13    public ListNode reverseKGroup(ListNode head, int k) {
+14        // Pointer to traverse and count k nodes
+15        ListNode curr = head;
+16        int count = 0;
+17        
+18        // Step 1: Check if there are at least k nodes ahead
+19        // Move 'curr' k steps forward
+20        while (curr != null && count < k) {
+21            curr = curr.next;
+22            count++;
+23        }
+24        
+25        // If we found k nodes, we can reverse this group
+26        if (count == k) {
+27            
+28            // Step 2: Recursively process the remaining list
+29            // 'curr' now points to the start of next group
+30            // This returns the head of the already processed (reversed) remaining list
+31            ListNode prev = reverseKGroup(curr, k);
+32            
+33            // Step 3: Reverse current k nodes
+34            // We attach nodes one by one in front of 'prev'
+35            // So current group gets reversed and linked to rest
+36            
+37            while (count-- > 0) {
+38                ListNode next = head.next; // store next node
+39                
+40                // Reverse the link:
+41                // make current node point to already processed part
+42                head.next = prev;
+43                
+44                // Move 'prev' forward (it becomes new head of reversed part)
+45                prev = head;
+46                
+47                // Move 'head' forward to continue reversal
+48                head = next;
+49            }
+50            
+51            // Step 4: Update head to new head of this reversed group
+52            head = prev;
+53        }
+54        
+55        // If less than k nodes, return head as it is (no reversal)
+56        return head;
+57    }
+58}
