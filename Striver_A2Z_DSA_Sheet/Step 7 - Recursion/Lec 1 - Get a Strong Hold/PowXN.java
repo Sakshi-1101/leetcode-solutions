@@ -70,7 +70,7 @@ public class PowXN {
             The below recursion will not work bcoz it's too deep.
                   double ans = helper(x, n - 1);
             If you call => helper(2, 20000); then that's 20k recursive calls.
-            Java has a limited call stack size, Usually handles ~10k–20k recursive calls (depends on JVM)
+            Java has a limited call stack size, Usually handles ~10k?20k recursive calls (depends on JVM)
             So if n is large -> stack overflow
 
          */
@@ -81,18 +81,18 @@ public class PowXN {
             Reduce problem by half each time.
             
             Case 1: n is even
-            => Example: x^10 = x^5 × x^5
-                    So: x^n = x^(n/2) × x^(n/2)
+            => Example: x^10 = x^5 ? x^5
+                    So: x^n = x^(n/2) ? x^(n/2)
                 Now, half = x^(n/2)
-                        x^n = half × half
+                        x^n = half ? half
             
             Case 2: n is odd
-            => Example: x^5 = x × x^4 where x^4 = x^2 × x^2
-                      : x^5 = x × (x^2 × x^2)
-                      : x^5 = x × (x^2)^2
-                    So: x^n =  x × x^(n/2) × x^(n/2)
+            => Example: x^5 = x ? x^4 where x^4 = x^2 ? x^2
+                      : x^5 = x ? (x^2 ? x^2)
+                      : x^5 = x ? (x^2)^2
+                    So: x^n =  x ? x^(n/2) ? x^(n/2)
                 Now, half = x^(n/2)
-                        x^n = x × half × half
+                        x^n = x ? half ? half
          */
         
         double half = helper(x, n / 2);
