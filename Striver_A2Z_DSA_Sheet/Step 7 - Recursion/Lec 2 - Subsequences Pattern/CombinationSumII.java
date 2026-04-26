@@ -19,7 +19,11 @@ public class CombinationSumII {
 
     // TC: O(2^n * klog(set size))
     // SC: O(k * x)
-    // Approach: 
+    // Approach: In this approach, we will use backtracking to find all the combinations of numbers that sum up to the target. 
+    //           We will have two choices for each element in the array: include it in the combination or exclude it. We will 
+    //           explore both the choices recursively until we reach the end of the array. When we reach the end of the array, 
+    //           we will check if the sum of the formed combination is equal to the target. If it is, we will add the combination 
+    //           to a hashset to avoid duplicates. Finally, we will convert the hashset to a list and return it.
     public static List<List<Integer>> generateCombinationsBrute(int[] arr, int tar) {
         // sort the array to get result in lexicographical order
         Arrays.sort(arr);
@@ -62,7 +66,11 @@ public class CombinationSumII {
 
     // TC: O(2^n * k)
     // SC: O(k * x)
-    // Approach: 
+    // Approach: In this approach, we will use backtracking to find all the unique combinations of numbers that sum up to the 
+    //           target. We will sort the array to handle duplicates and get the result in lexicographical order. We will have 
+    //           two choices for each element in the array: include it in the combination or exclude it. We will explore both the 
+    //           choices recursively until we reach the end of the array. When we reach the end of the array, we will check if 
+    //           the sum of the formed combination is equal to the target.
     public static List<List<Integer>> generateCombinationsOptimal(int[] arr, int tar) {
         // sort the array to get lexicographically sorted combinations
         Arrays.sort(arr);
