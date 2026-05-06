@@ -14,7 +14,10 @@ public class NQueens {
 
     // TC: O(N!*N) => we try all possible permutations of placing the queens and check for safety.
     // SC: O(N^2 + N + K * N^2) = O(k * N^2)=> additional space used for storing distinct boards and stack space.
-    // Approach:
+    // Approach: In this approach, we will try to place the queens column by column. For each column, we will try to place the 
+    //           queen in each row and check if it's safe to place the queen there. If it's safe then we will call recursion to 
+    //           place the next queen in the next column. If we are able to place all queens then we will add the current board 
+    //           configuration to the final answer list else we will backtrack and try other rows for the current column.
     public static List<List<String>> nQueensBrute(int n) {
         List<List<String>> res = new ArrayList<>();
 
@@ -90,7 +93,9 @@ public class NQueens {
     
     // TC: O(N!) -> isSafe() check is now happening in O(1)
     // SC: O(k * N^2)
-    // Approach:
+    // Approach: In this approach, we will use hash lists to keep track of the positions where the queens are already placed in 
+    //           the directions (left, upper left diagonal, lower left diagonal). This will allow us to check if it's safe to 
+    //           place a queen in a particular position in constant time.
     public static List<List<String>> nQueensOptimal(int n) {
         List<List<String>> res = new ArrayList<>();
 

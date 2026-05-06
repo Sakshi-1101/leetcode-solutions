@@ -15,7 +15,9 @@ public class ExpressionAddOperator {
 
     // TC: O(4^n) => in each recursive call, we can choose 4 possibilities for each substring (+, -, *, or no operator in the case of the first number)
     // SC: O(n) => recursion stack space
-    // AApproach: DFS Approach
+    // AApproach: DFS Approach - In this approach, we will generate all possible expressions by inserting the operators between 
+    //            the digits and evaluate them on the fly. We will keep track of the current value of the expression and the last 
+    //            number added or subtracted to handle multiplication correctly.
     public static void getExpressions(String s, int idx, String exp, long valSoFar, long lastNum, int tar, List<String> res) {
         // base case: If we've reached the end of the string
         if(idx == s.length()) {

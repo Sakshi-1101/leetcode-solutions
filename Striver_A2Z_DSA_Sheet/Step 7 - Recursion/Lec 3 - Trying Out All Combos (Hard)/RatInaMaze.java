@@ -24,7 +24,11 @@ public class RatInaMaze {
 
     // TC: O(4^(N^2)) -> worst case: visit all cells once in a path where each cell has 4 choices
     // SC: O(n^2 + k*(n^2)) -> n^2 for recursion stack space and k*(n^2) where k = total paths and each path length = n^2 
-    // Approach:
+    // Approach: In this approach, we will use backtracking to find all possible paths from the top-left corner to the 
+    //           bottom-right corner of the maze. We will explore all 4 possible directions (up, right, down, left) from each 
+    //           cell and keep track of the visited cells to avoid cycles. When we reach the destination cell, we will add the 
+    //           current path to the result list. After exploring all directions from a cell, we will backtrack by unmarking the 
+    //           cell as visited before returning to explore other paths.
     private static void findPaths(int[][] maze, int row, int col, int n, List<String> res, String path, int[][] visited) {
         // base case: If destination reached, store the path
         if(row == n - 1 && col == n - 1) {

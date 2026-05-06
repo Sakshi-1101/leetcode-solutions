@@ -30,7 +30,13 @@ public class SudokuSolver {
 
     // TC: O(9^(k)) -> in worst case, total empty cells = k and each cell we have 9 choices.
     // SC: O(k) -> where k = no. of total empty cells
-    // Approach:
+    // Approach: In this approach, we will use backtracking to fill the empty cells in the Sudoku board. We will traverse the 
+    //           board and for each empty cell, we will try to fill it with digits from 1 to 9. For each digit, we will check 
+    //           if it's safe to place it in the current cell according to the Sudoku rules (i.e., the digit should not be 
+    //           present in the same row, column, and 3x3 sub-box). If it's safe, we will place the digit in the cell and call 
+    //           recursion to fill the next empty cell. If we are able to fill all cells successfully, we return true. If at any 
+    //           point we find that no digit can be placed in an empty cell, we will backtrack by resetting the cell to empty and 
+    //           trying other digits for the previous cells.
     public static boolean solveSudoku(char[][] board) {
         // traverse the entire board
         for(int i = 0 ; i < board.length ; i ++) {

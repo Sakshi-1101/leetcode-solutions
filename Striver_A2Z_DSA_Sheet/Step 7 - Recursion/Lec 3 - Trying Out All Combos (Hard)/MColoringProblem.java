@@ -26,7 +26,9 @@ public class MColoringProblem {
 
     // TC: O(N^m) -> for each n node we try m colors
     // SC: O(N) + O(N) -> N for recursion stack space + N for color array
-    // Approach:
+    // Approach: In this approach, we will try to color each node with every possible color and check if it's safe to color the 
+    //           node with that color. If it's safe then we will call recursion to color the next node. If we are able to color 
+    //           all nodes then we return true else we backtrack and try other colors for the current node.
     public static boolean colorNodes(boolean[][] graph, int node, int n, int m, int[] colours) {
         // base case: curr node is equal to n
         if(node == n) {

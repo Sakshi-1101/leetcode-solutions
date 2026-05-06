@@ -20,7 +20,12 @@ public class WordBreak {
 
     // TC:
     // SC: O(n) -> recursion depth
-    // Approach:
+    // Approach: In this approach, we will use backtracking to check if the given string can be segmented into a space-separated 
+    //           sequence of one or more dictionary words. We will start from the beginning of the string and generate all 
+    //           possible substrings. For each substring, we will check if it exists in the dictionary. If it does, we will 
+    //           recursively call the function for the remaining part of the string. If we reach the end of the string 
+    //           successfully, it means that the original string can be segmented into valid dictionary words, and we will return 
+    //           true. If we exhaust all possibilities without finding a valid segmentation, we will return false.
     private static boolean checkWords(String s, Set<String> words) {
         Set<String> dict = new HashSet<>();
 
