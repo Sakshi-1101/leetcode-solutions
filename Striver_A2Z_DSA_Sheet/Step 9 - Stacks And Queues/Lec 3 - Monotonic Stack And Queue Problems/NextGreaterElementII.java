@@ -104,4 +104,43 @@ public class NextGreaterElementII {
 
         return ans;
     }
+
+    // TC: O(N)
+    // SC: O(N)
+    // Approach: In this approach we will use array as stack to reduce the space complexity of stack from O(2N) to O(N) and we 
+    //           will maintain a variable top to keep track of the top of stack and we will push the indices in stack instead of 
+    //           values because we need to assign the nge for those indices in ans array and we can get the value from arr using 
+    //           those indices.
+    // Best Approach using array as stack
+     public int[] nextGreaterElements(int[] nums) {
+
+        int n = nums.length;
+
+        int[] res = new int[n];
+        Arrays.fill(res, -1);
+
+        // stores indices whose next greater element is not found yet and the stack is maintained in Monotonic Decreasing Order
+        int[] stack = new int[n];
+        int top = -1;
+
+        for(int i = 0; i < 2 * n; i++) {
+
+            int idx = i % n;
+
+            // As long as current element is bigger than stack top, current element becomes NGE for those smaller elements.
+            while(top >= 0 && nums[idx] > nums[stack[top]]) {
+                res[stack[top--]] = nums[idx];
+            }
+
+            // only push first pass indices to stack i.e. the actual part of arr, we don't need to push hypothetical part indices 
+            // in stack because they are just for checking nge for actual part elements for which we didn't find nge in first pass
+            // and the second pass contains hypothetical part indices for which we dont need nge but will use them for finding nge 
+            // for actual part elements.
+            if(i < n) {
+                stack[++top] = idx;
+            }
+        }
+
+        return res;
+    }
 }
