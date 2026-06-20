@@ -45,7 +45,7 @@ public class DetectLoopInLL {
     }
 
     // TC: O(N * LogN) -> we traverse the entire LL once and store and retrieve nodes from the hashmap. Map operations have a worst time space complexiy of O(LogN).
-    // SC: o(N) -> hashmap space
+    // SC: O(N) -> hashmap space
     // Approach: In this approach, we will use a hashmap to store the nodes of the LL. We will traverse the LL and for each node, 
     //           we will check if it is already present in the hashmap. If it is present, then it means that it is already visited
     //           and hence there is a loop in the LL and we will return true. If it is not present, then we will add it to the 
