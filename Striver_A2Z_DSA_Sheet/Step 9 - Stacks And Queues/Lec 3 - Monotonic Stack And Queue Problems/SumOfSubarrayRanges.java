@@ -201,7 +201,7 @@ public class SumOfSubarrayRanges {
             if(!st.isEmpty()) {
                 ans[i] = st.peek();
             } else {
-                ans[i] = n; // If stack is empty, NSE doesn't exist → set to n
+                ans[i] = n; // If stack is empty, NGE doesn't exist → set to n
             }
 
             // Push current index to stack
@@ -228,7 +228,7 @@ public class SumOfSubarrayRanges {
             if(!st.isEmpty()) {
                 ans[i] = st.peek();
             } else {
-                ans[i] = -1; // If stack is empty, pse doesn't exist → set to -1
+                ans[i] = -1; // If stack is empty, PGEE doesn't exist → set to -1
             }
 
             // Push current index to stack
