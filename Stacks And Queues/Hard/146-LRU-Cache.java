@@ -1,0 +1,113 @@
+class LRUCache {
+
+     public static class Node {
+        int key;
+        int val;
+        Node prev;
+        Node next;
+
+        Node(int key, int val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    HashMap<Integer, Node> map = new HashMap<>(); // to store <key, node address>
+    int capacity; // max nodes the cache can have
+
+    // dummy nodes
+    Node head = new Node(-1, -1);
+    Node tail = new Node(-1, -1);
+
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        head.next = tail;
+        tail.prev = head;
+    }
+    
+    // TC: O(1) -> assuming map operations are taking O(1) otherwise O(logn)
+    public int get(int key) {
+        // if map doesn't contain the key
+        if(!map.containsKey(key)) {
+            return -1;
+        }
+
+        // if key present get the node
+        Node keyNode = map.get(key);
+        // get the val from node
+        int val = keyNode.val;
+
+        /* now since we have accessed this node, we need to put in front since it's most recently used & we maintain LRU cache 
+           where we have nodes from most to least recently used
+        */
+        // Step 1: delete the node from the cache and map
+        deleteNode(keyNode);
+        map.remove(key);
+
+        // Step 2: insert the node at the front after headNode and add it to the map
+        insertNodeAfterHead(keyNode); // reuse same node, don't create new node
+        map.put(key, head.next); // since we remove the keyNode node, we need to add it again with new node address (i.e. 1st node after head)
+
+
+        return val;
+    }
+    
+    // TC: O(1) -> assuming map operations are taking O(1) otherwise O(logn)
+    public void put(int key, int value) {
+        // if map contains the key, update the value
+        if(map.containsKey(key)) {
+            // get the node of the key
+            Node keyNode = map.get(key);
+            keyNode.val = value; // update with new value;
+
+            // now that node is most recently used, so we need to delete and put the node in front
+            deleteNode(keyNode);
+            insertNodeAfterHead(keyNode);
+        } else { // if node not in the map
+            // if cache size is equal to capacity of cache
+            if(map.size() == capacity) {
+                // delete the least recently used node (last node before dummy tail node)
+                Node lruNode = tail.prev;
+                map.remove(lruNode.key); // remove the occurrence of this LRU <key, node> from map also
+                deleteNode(lruNode);
+            }
+
+            // insert a new node at the front and add it to the map also
+            Node newNode = new Node(key, value);
+            map.put(key, newNode);
+            insertNodeAfterHead(newNode);
+        }
+    }
+
+    // TC: O(1)
+    private void deleteNode(Node lruNode) {
+        // we want to connect the prevNode from lruNode to current node, so get the reference to that node
+        Node prevNode = lruNode.prev;
+        Node tailNode = lruNode.next;
+
+        // make connections
+        prevNode.next = tailNode;
+        tailNode.prev = prevNode;
+    }
+
+    // TC: O(1)
+    private void insertNodeAfterHead(Node newNode) {
+        Node temp = head.next; // store the reference to the 1st node after head
+        
+        // insert newNode before 1st node after head
+        newNode.next = temp;
+        newNode.prev = head; // connect newNode prev with head
+
+        // connect head with newNode to make it 1st node after head 
+        head.next = newNode;
+        temp.prev = newNode; // now the temp node (earlier 1st node) has become 2nd node so connect it's prev with newNode(now 1st node)
+        
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
