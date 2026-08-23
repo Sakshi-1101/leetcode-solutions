@@ -66,7 +66,7 @@ class DoublyLL {
 
 public class LFUCache {
 
-    private int capacity; // total capacity of lfu cache
+    private int capacity; // total capacity of LFU cache
     private int currSize; // current size of the cache
     private int minFreq; // min freq of entire LFU cache where the LFU node will be present
     private HashMap<Integer, DLLNode> keyNodeMap; //<key, node> is stored in the map -> This is the LFU Cache
